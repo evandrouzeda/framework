@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+}
+
+.o-scroll {
+    overflow: scroll;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gap-g {
+    gap: 1em;
+}
+
+.gap-m {
+    gap: .5em;
+}
+
+.gap-p {
+    gap: .2em;
+}
+
+button,
+.p-10 {
+    padding: 10px;
+}
+
+.modal-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000004a;
+}
+
+.modal {
+    background-color: white;
+    padding: .8em;
+    border-radius: 0.5em .5em 0 0;
+    width: 85vw;
+    min-height: 50vh;
+    position: absolute;
+    bottom: 0;
+    align-content: space-between;
+}
+
+.card {
+    background-color: #f0eded;
+    border-radius: .7em;
+    min-width: 30vw;
+    align-content: baseline;
+}
+
+button {
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+}
+
+input {
+    border: solid 2px lightgray;
+    padding: 10px 0 10px 5px;
+    font-size: 14px;
+    border-radius: .5em;
+}
