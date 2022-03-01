@@ -69,7 +69,7 @@ function setPage() {
         }
     })
     console.log(params);
-    if (page)
+    if (page)// aqui tem que chamar o builder para construir a pagina, passando os elementos por parametro
         page.children.forEach(e => root.appendChild(e))
     else
         [raiz, e404].forEach(e => root.appendChild(e))
