@@ -27,14 +27,11 @@ App.pages.push({
     route: "/",
     children: [estacionameto, dashboard]
 })
-
-
 App.pages.push({
     route: "/dashboard",
     auth: "accessController",
     children: [raiz, estacionameto]
 })
-
 App.pages.push({
     route: "/estacionamento",
     auth: "",
