@@ -6,10 +6,14 @@ export default class ComponentForm {
     main: HTMLElement
     constructor(destino: Node){
         this.main = document.createElement("form")
+        this.main.classList.add("d-grid", "gap-m")
         destino.appendChild(this.main)
     }
 
     async create(form: Form){
+        const title = document.createElement("h2")
+        title.innerText = form.title
+        this.main.appendChild(title)
         const fields = await form.getFields()
         const properties: {[key: string]: FormElement}= {}
         for(const key in fields){

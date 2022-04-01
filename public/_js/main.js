@@ -32,7 +32,6 @@ teste.onclick = _ => {
     login.params = { "date": new Date().toString() };
     console.log(login);
 };
-App.root.appendChild(teste);
 App.pages.push(login);
 App.pages.push({
     route: "/dashboard",

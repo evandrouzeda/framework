@@ -11,10 +11,14 @@ import Fields from "./_list.js";
 export default class ComponentForm {
     constructor(destino) {
         this.main = document.createElement("form");
+        this.main.classList.add("d-grid", "gap-m");
         destino.appendChild(this.main);
     }
     create(form) {
         return __awaiter(this, void 0, void 0, function* () {
+            const title = document.createElement("h2");
+            title.innerText = form.title;
+            this.main.appendChild(title);
             const fields = yield form.getFields();
             const properties = {};
             for (const key in fields) {

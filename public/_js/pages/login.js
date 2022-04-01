@@ -10,7 +10,6 @@ export default class Login {
         this["route"] = "/";
         const logo = document.createElement("div");
         logo.classList.add("d-grid", "gap-m", "jc-center", "ac-center", "h-100");
-        logo.innerText = "Evandro";
         main.appendChild(logo);
         const login = document.createElement("div");
         login.classList.add("d-grid", "gap-m", "jc-center", "ac-center", "h-100", "login");

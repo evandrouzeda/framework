@@ -18,7 +18,6 @@ export default class Login implements Page {
         
         const logo = document.createElement("div")
         logo.classList.add("d-grid", "gap-m", "jc-center", "ac-center", "h-100")
-        logo.innerText = "Evandro"
         
         main.appendChild(logo)
         const login = document.createElement("div")
