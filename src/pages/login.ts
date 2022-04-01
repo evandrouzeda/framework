@@ -28,7 +28,7 @@ export default class Login implements Page {
                         ),
                         new $("div").addClass("d-grid", "gap-p").children(
                             new $("label").object(e => e.element.innerText = "Senha"),
-                            new $("input"),
+                            new $("input").atrib("type", "password"),
                         ),
                         new $("button").object(e => e.element.innerText = "Entrar")
                     )

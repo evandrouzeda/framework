@@ -6,7 +6,7 @@ export default class Login {
             .children(new $("form").object(e => e.element.onsubmit = (e) => {
             e.preventDefault();
             console.log(e.target);
-        }).addClass("d-grid", "gap-m").children(new $("h1").object(e => e.element.innerText = "Login"), new $("div").addClass("d-grid", "gap-p").children(new $("label").object(e => e.element.innerText = "Usuario"), new $("input")), new $("div").addClass("d-grid", "gap-p").children(new $("label").object(e => e.element.innerText = "Senha"), new $("input")), new $("button").object(e => e.element.innerText = "Entrar")))).element;
+        }).addClass("d-grid", "gap-m").children(new $("h1").object(e => e.element.innerText = "Login"), new $("div").addClass("d-grid", "gap-p").children(new $("label").object(e => e.element.innerText = "Usuario"), new $("input")), new $("div").addClass("d-grid", "gap-p").children(new $("label").object(e => e.element.innerText = "Senha"), new $("input").atrib("type", "password")), new $("button").object(e => e.element.innerText = "Entrar")))).element;
         /* const login = document.createElement("div")
         login.classList.add()
         const repository = new RepositoryLocalStorage()
