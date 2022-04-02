@@ -27,12 +27,9 @@ export default class ComponentForm {
     static submit(e) {
         e.element.onsubmit = e => {
             e.preventDefault();
-            console.log(this);
             for (const key in this.fields) {
-                if (Object.prototype.hasOwnProperty.call(this.form.model, key)) {
-                    console.log(this.properties[key].element.element);
+                if (Object.prototype.hasOwnProperty.call(this.form.model, key))
                     this.form.model[key] = this.properties[key].getValue();
-                }
             }
             console.log(this.form);
             //TODO: aqui tem que chamar o controller

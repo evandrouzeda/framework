@@ -7,7 +7,7 @@ import FormElement from "./_element.js"
 import Fields from "./_list.js"
 
 export default class ComponentForm {
-    static main = new Z("form")
+    static main: Z = new Z("form")
     static form: Form
     static properties: {[key: string]: FormElement} = {}
     static fields: {[key: string]: Field}
@@ -31,13 +31,9 @@ export default class ComponentForm {
     static submit(e: Zeyo){
         e.element.onsubmit = e => {
             e.preventDefault()
-            console.log(this)
             for (const key in this.fields) {
-                if (Object.prototype.hasOwnProperty.call(this.form.model, key)){
-                    console.log(this.properties[key].element.element);
-                    
+                if (Object.prototype.hasOwnProperty.call(this.form.model, key))
                     this.form.model[key] = this.properties[key].getValue()
-                }
             }
             console.log(this.form);
             //TODO: aqui tem que chamar o controller

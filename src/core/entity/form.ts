@@ -8,7 +8,7 @@ export default abstract class Form {
     controller: string
     model: any
     repository: Repository
-    constructor(repository: Repository, model: any, title: string, controller: string, action: string){
+    constructor(repository: Repository, model: any, title: string= "", controller: string = "", action: string = ""){
         this.repository = repository
         this.model = model
         this.title = title
