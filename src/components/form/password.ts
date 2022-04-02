@@ -10,6 +10,11 @@ export default class Password extends FormElement {
         return new Z("div").addClass("d-grid", "gap-p").children(
             new Z("label").object(e => e.element.innerText = this.label),
             this.element,
+            //TODO: tem que criar um campo extra para criar mais opcoes no campo
+            new Z("p").object(z => {
+                z.element.innerText = "Esqueci minha senha"
+                z.element.style.textAlign = "right"
+            })
         )
     }
 }

@@ -1,3 +1,35 @@
+:root {
+    --color-primary: #00001e;
+    --color-primary-rgb: 0, 0, 30;
+    --color-primary-contrast: white;
+    --color-primary-contrast-rgb: 255, 255, 255;
+    --color-primary-fade: rgba(var(--color-primary-rgb), 0.37);
+    /* --color-secudary: ;
+    --color-tertiary: ; */
+    --screen-background: rgb(235, 235, 235);
+    --screen-color: black;
+    --card-background: white;
+    --card-background-tint: rgb(250, 250, 250);
+    --card-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: #00001e;
+        --color-primary-rgb: 0, 0, 30;
+        --color-primary-contrast: white;
+        --color-primary-contrast-rgb: 255, 255, 255;
+        --color-primary-fade: rgba(var(--color-primary-rgb), 0.87);
+        /* --color-secudary: ;
+        --color-tertiary: ; */
+        --screen-background: rgb(14, 14, 14);
+        --screen-color: white;
+        --card-background: rgb(30, 30, 30);
+        --card-background-tint: rgb(64, 64, 64);
+        --card-color: white;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +64,63 @@
 .gap-p {
     gap: .2em;
 }
+
+.a-center,
+.centro {
+    align-items: center;
+}
+
+.ac-center {
+    align-content: center;
+}
+
+.ac-start {
+    align-content: start;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+main.login {
+    grid-template-columns: 50vw 50vw;
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+    height: 100vh;
+  }
+  div.login {
+    background-color: var(--color-primary-contrast);
+    color: var(--color-primary);
+    gap: 2em;
+  }
+  @media (max-width: 992px) {
+    main.login {
+      grid-template-columns: 100vw;
+      grid-template-rows: 30vh 70vh;
+    }
+  
+    main.login img {
+      width: 60vw;
+    }
+  
+    div.login {
+      border-radius: 1em 1em 0 0;
+      padding: 0 2.5em;
+      justify-content: inherit !important;
+    }
+  }
 
 button,
 .p-10 {
@@ -69,6 +158,8 @@ button,
 }
 
 button {
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
     font-size: 16px;
     border: none;
     border-radius: 10px;
