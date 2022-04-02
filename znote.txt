@@ -2,14 +2,4 @@ workflow com typescript
 https://www.youtube.com/watch?v=Y4IiQY9dNRA&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&index=7
 
 
-tenho que criar um state de componente para declarar estados que um componente tem:
-    Ex. form que pode ser login cadastro esqueceu senha
-
-tenho que fazer uma forma meio jquery de criar os elementos html
-    Ex. Z("button").class("botao").innerText("Entrar").onclick(e=>{e.preventDefault()})
-        Z("form").class("d-grid", "gap-m").onsumit(e=>{e.preventDefault()}).children(
-            $("h1").innerText("Ola Mundo"),
-            $("h3").innerText("Mundo ola")
-        )
-
-para criar os componentes posso adicionar um atributo main que contera o Zeyo dai passo o main em cada subelemento e posso usar o children para sub do componente
+Tenho que fazer um metodo para usar o proxy genericamente src/features/user/state/_store.ts
