@@ -21,6 +21,8 @@ export default class Login {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = new RepositoryLocalStorage();
             const model = new User();
+            model.username = "evandrouzeda";
+            model.password = "teste1234";
             this.main.addClass("d-grid", "login").children(new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100"), new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100", "login")
                 .children(yield ComponentForm.create(new FormLogin(repository, model)))).element;
             /* const login = document.createElement("div")

@@ -15,7 +15,9 @@ export default class Login implements Page {
     main = new Z("main");
     async create() {
         const repository = new RepositoryLocalStorage()
-        const model: any = new User()
+        const model= new User()
+        model.username = "evandrouzeda"
+        model.password = "teste1234"
         this.main.addClass("d-grid", "login").children(
             new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100"),
             new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100", "login")

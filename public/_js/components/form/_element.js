@@ -1,14 +1,16 @@
+import { Z } from "../../ui/zeyo.js";
 export default class FormElement {
     constructor(type) {
         this.label = "";
         this.placeholder = "";
-        this.element = document.createElement("input");
+        this.element = new Z("input");
         this.type = type;
     }
     getValue() {
-        return this.element.value;
+        const e = this.element.element;
+        return e.value;
     }
     setValue(value) {
-        this.element.value = value;
+        this.element.atrib("value", value);
     }
 }

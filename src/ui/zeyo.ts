@@ -35,6 +35,7 @@ abstract class CssClass extends Root{
 interface Atributes {
     "type": string
     "placeholder": string
+    "value": string
 }
 abstract class Atribute extends CssClass{
     constructor(tagName: keyof HTMLElementTagNameMap){

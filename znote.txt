@@ -6,8 +6,8 @@ tenho que criar um state de componente para declarar estados que um componente t
     Ex. form que pode ser login cadastro esqueceu senha
 
 tenho que fazer uma forma meio jquery de criar os elementos html
-    Ex. $("button").class("botao").innerText("Entrar").onclick(e=>{e.preventDefault()})
-        $("form").class("d-grid", "gap-m").onsumit(e=>{e.preventDefault()}).children(
+    Ex. Z("button").class("botao").innerText("Entrar").onclick(e=>{e.preventDefault()})
+        Z("form").class("d-grid", "gap-m").onsumit(e=>{e.preventDefault()}).children(
             $("h1").innerText("Ola Mundo"),
             $("h3").innerText("Mundo ola")
         )

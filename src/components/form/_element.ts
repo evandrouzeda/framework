@@ -1,17 +1,20 @@
+import { Z } from "../../ui/zeyo.js"
+
 export default abstract class FormElement {
     label = ""
     placeholder = ""
-    element = document.createElement("input")
+    element = new Z("input")
     type: string
     constructor(type: string) {
         this.type = type
     }
-    abstract getHtml(): HTMLElement
+    abstract create(): Z
     getValue() {
-        return this.element.value
+        const e: any = this.element.element
+        return e.value
     }
 
     setValue(value: string) {
-        this.element.value = value
+        this.element.atrib("value", value)
     }
 }

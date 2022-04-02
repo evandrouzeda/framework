@@ -15,5 +15,5 @@ export default abstract class Form {
         this.controller = controller
         this.action = action
     }
-    abstract getFields(): {[key: string]: Field}
+    abstract getFields(): Promise<{[key: string]: Field}>
 }

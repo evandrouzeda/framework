@@ -8,7 +8,7 @@ export default class FormLogin extends Form{
     constructor(repository: Repository, model: User){
         super(repository, model, "Login", "login", "Enter")
     }
-    getFields(): {[key: string]: Field}{
+    async getFields(): Promise<{[key: string]: Field}>{
         return {
             "username": new Field("text", "Username", "Username"),
             "password": new Field("password", "Password", "Password")

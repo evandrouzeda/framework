@@ -1,18 +1,15 @@
+import { Z } from "../../ui/zeyo.js"
 import FormElement from "./_element.js"
 
 export default class Password extends FormElement {
     constructor() {
         super("text")
     }
-    getHtml() {
-        const div = document.createElement("div")
-        const label = document.createElement("label")
-        label.innerText = this.label
-        div.appendChild(label)
-        this.element.type = this.type
-        this.element.placeholder = this.placeholder
-        div.classList.add("d-grid", "gap-p")
-        div.appendChild(this.element)
-        return div
+    create(): Z {
+        this.element.atrib("type", this.type).atrib("placeholder", this.placeholder)
+        return new Z("div").addClass("d-grid", "gap-p").children(
+            new Z("label").object(e => e.element.innerText = this.label),
+            this.element,
+        )
     }
 }
