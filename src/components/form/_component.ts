@@ -1,3 +1,4 @@
+import App from "../../app.js"
 import Form from "../../core/entity/form.js"
 import { Z } from "../../ui/zeyo.js"
 import FormElement from "./_element.js"
@@ -9,7 +10,7 @@ export default class ComponentForm {
     static async create(form: Form){
         const fields = await form.getFields()
         const properties: {[key: string]: FormElement} = {}
-        return this.main.addClass("d-grid", "gap-m").children(
+        return new Z("form").addClass("d-grid", "gap-m").children(
             new Z("h2").object(e => e.element.innerText = form.title),
             ...Object.keys(fields).map(k=>{
                 properties[k] = Object.assign(Fields.list[fields[k].type], fields[k])
@@ -25,6 +26,8 @@ export default class ComponentForm {
                     form.model[key] = properties[key].getValue()
             }
             console.log(form.model);
+            //TODO: aqui tem que chamar o controller
+            App.route.push("/estacionamento")
         })
     }
 }

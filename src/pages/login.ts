@@ -18,7 +18,7 @@ export default class Login implements Page {
         const model= new User()
         model.username = "evandrouzeda"
         model.password = "teste1234"
-        this.main.addClass("d-grid", "login").children(
+        return new Z("main").addClass("d-grid", "login").children(
             new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100").children(
                 new Z("h1").object(z => z.element.innerText = "Bem-Vindo de volta!!!")
             ),
@@ -32,8 +32,6 @@ export default class Login implements Page {
                         })
                     )
                 )
-        ).element
-        console.log(this);
-        return this.main
+        )
     }
 }

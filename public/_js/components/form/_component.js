@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import App from "../../app.js";
 import { Z } from "../../ui/zeyo.js";
 import Fields from "./_list.js";
 export default class ComponentForm {
@@ -14,7 +15,7 @@ export default class ComponentForm {
         return __awaiter(this, void 0, void 0, function* () {
             const fields = yield form.getFields();
             const properties = {};
-            return this.main.addClass("d-grid", "gap-m").children(new Z("h2").object(e => e.element.innerText = form.title), ...Object.keys(fields).map(k => {
+            return new Z("form").addClass("d-grid", "gap-m").children(new Z("h2").object(e => e.element.innerText = form.title), ...Object.keys(fields).map(k => {
                 properties[k] = Object.assign(Fields.list[fields[k].type], fields[k]);
                 const z = properties[k].create();
                 properties[k].setValue(form.model[k]);
@@ -26,6 +27,8 @@ export default class ComponentForm {
                         form.model[key] = properties[key].getValue();
                 }
                 console.log(form.model);
+                //TODO: aqui tem que chamar o controller
+                App.route.push("/estacionamento");
             });
         });
     }

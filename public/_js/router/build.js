@@ -12,7 +12,7 @@ import { Z } from "../ui/zeyo.js";
 export default class Build {
     static build(path) {
         return __awaiter(this, void 0, void 0, function* () {
-            //App.root.innerHTML = ""
+            App.root.innerHTML = "";
             const params = {};
             const page = App.pages.find(p => {
                 if (p.route === path)

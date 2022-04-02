@@ -5,21 +5,19 @@ import { Z } from "./ui/zeyo.js"
 
 console.log(window.location.pathname)
 
-const raiz = document.createElement("button")
-raiz.innerText = "Raiz"
-raiz.onclick = _ => {
-    App.route.push("/")
+const raiz = {
+    text: "Raiz",
+    route: "/"
 }
 
-const estacionameto = document.createElement("button")
-estacionameto.innerText = "Estacionamento"
-estacionameto.onclick = _ => {
-    App.route.push("/estacionamento")
+const estacionameto = {
+    text: "Estacionamento",
+    route: "/estacionamento"
 }
-const dashboard = document.createElement("button")
-dashboard.innerText = "Dashboard"
-dashboard.onclick = _ => {
-    App.route.push("/dashboard")
+
+const dashboard = {
+    text: "Dashboard",
+    route: "/dashboard"
 }
 
 const back = document.createElement("button")
@@ -34,36 +32,47 @@ const login: Page = new Proxy(new Login, {
     }
 })
 
-const teste = document.createElement("button")
-teste.innerText = "Dashboard"
-teste.onclick = _ => {
-    login.params = { "date": new Date().toString() }
-    console.log(login);
-}
-
 App.pages.push(login)
 App.pages.push({
     route: "/dashboard",
     auth: "accessController",
-    children: [raiz, estacionameto],
     async create() {
-        return new Z("div")
+        return new Z("div").children(
+            ...[raiz, estacionameto].map(b => new Z("button").object(z => {
+                z.element.innerText = b.text
+                z.element.onclick = () => {
+                    App.route.push(b.route)
+                }
+            }))
+        )
     }
 })
 App.pages.push({
     route: "/estacionamento",
     auth: "",
-    children: [raiz, dashboard],
     async create(){
-        return new Z("div")
+        return new Z("main").children(
+            ...[raiz, dashboard].map(b => new Z("button").object(z => {
+                z.element.innerText = b.text
+                z.element.onclick = () => {
+                    App.route.push(b.route)
+                }
+            }))
+        )
     }
 })
 App.pages.push({
     route: "/social/:usuario",
     auth: "",
-    children: [raiz, dashboard],
     async create(){
-        return new Z("div")
+        return new Z("div").children(
+            ...[raiz, dashboard].map(b => new Z("button").object(z => {
+                z.element.innerText = b.text
+                z.element.onclick = () => {
+                    App.route.push(b.route)
+                }
+            }))
+        )
     }
 })
 

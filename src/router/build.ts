@@ -4,7 +4,7 @@ import { Z } from "../ui/zeyo.js"
 
 export default class Build {
     static async build(path: string) {
-        //App.root.innerHTML = ""
+        App.root.innerHTML = ""
         const params: { [key: string]: string } = {}
         const page = App.pages.find(p => {
             if (p.route === path) return true
