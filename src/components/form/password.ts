@@ -13,7 +13,7 @@ export default class Password extends FormElement {
             new Z("label").object(e => e.element.innerText = this.label),
             this.element,
             //TODO: tem que criar um campo extra para criar mais opcoes no campo
-            ...this.extra.map(k =>{ return Fields.list[k].create() })
+            ...this.extra.map(k =>{ return new Fields.list[k]().create() })
         )
     }
 }

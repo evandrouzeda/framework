@@ -6,7 +6,7 @@ export default class Text extends FormElement {
         super("text")
     }
     create(): Z {
-        this.element.atrib("type", this.type).atrib("placeholder", this.placeholder)
+        this.element = new Z("input").atrib("type", this.type).atrib("placeholder", this.placeholder)
         return new Z("div").addClass("d-grid", "gap-p").children(
             new Z("label").object(e => e.element.innerText = this.label),
             this.element,

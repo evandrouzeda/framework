@@ -1,5 +1,5 @@
 export default class Field {
-    constructor(type, label, placeholder, list, extra) {
+    constructor(type, label, placeholder, list, extra = []) {
         this.type = type;
         this.label = label;
         this.placeholder = placeholder;

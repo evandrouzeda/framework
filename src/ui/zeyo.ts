@@ -1,12 +1,6 @@
+import { Atributes, Zeyo } from "./lib"
 
-interface Zeyo {
-    element: HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
-    addClass(...tokens: string[]): Zeyo
-    children(...child: Zeyo[]): Zeyo
-    object(cb: (e: Zeyo) => void): Zeyo
-    atrib<K extends keyof Atributes>(key: K, value: string): Zeyo
-    atribs(atribs: {[key: string]: string}): Zeyo
-}
+
 abstract class Root implements Zeyo{
     element: HTMLElementTagNameMap[keyof HTMLElementTagNameMap]
     constructor(tagName: keyof HTMLElementTagNameMap){
@@ -34,11 +28,6 @@ abstract class CssClass extends Root{
     }
 }
 
-interface Atributes {
-    "type": string
-    "placeholder": string
-    "value": string
-}
 abstract class Atribute extends CssClass{
     constructor(tagName: keyof HTMLElementTagNameMap){
         super(tagName)
