@@ -24,7 +24,7 @@ export default class Login {
             model.username = "evandrouzeda";
             model.password = "teste1234";
             this.main.addClass("d-grid", "login").children(new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100").children(new Z("h1").object(z => z.element.innerText = "Bem-Vindo de volta!!!")), new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100", "login")
-                .children(yield ComponentForm.create(new FormLogin(repository, model)), new Z("p").object(z => z.element.innerText = "Não possui uma conta? ").children(new Z("p").object(z => {
+                .children(yield ComponentForm.create(new FormLogin(repository, model)), new Z("p").object(z => z.element.innerText = "Não possui uma conta? ").children(new Z("b").addClass("pointer").object(z => {
                 z.element.innerText = "Crie sua conta";
                 z.element.style.textDecoration = "underline";
             })))).element;

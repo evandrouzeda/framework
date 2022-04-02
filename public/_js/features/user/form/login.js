@@ -17,7 +17,7 @@ export default class FormLogin extends Form {
         return __awaiter(this, void 0, void 0, function* () {
             return {
                 "username": new Field("text", "Username", "Username"),
-                "password": new Field("password", "Password", "Password")
+                "password": new Field("password", "Password", "Password", undefined, ["esqueci"])
             };
         });
     }

@@ -26,7 +26,7 @@ export default class Login implements Page {
                 .children(
                     await ComponentForm.create(new FormLogin(repository, model)),
                     new Z("p").object(z => z.element.innerText = "Não possui uma conta? ").children(
-                        new Z("p").object(z => {
+                        new Z("b").addClass("pointer").object(z => {
                             z.element.innerText = "Crie sua conta"
                             z.element.style.textDecoration = "underline"
                         })

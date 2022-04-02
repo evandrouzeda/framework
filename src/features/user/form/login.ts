@@ -11,7 +11,7 @@ export default class FormLogin extends Form{
     async getFields(): Promise<{[key: string]: Field}>{
         return {
             "username": new Field("text", "Username", "Username"),
-            "password": new Field("password", "Password", "Password")
+            "password": new Field("password", "Password", "Password", undefined, ["esqueci"])
         }
     }
 }

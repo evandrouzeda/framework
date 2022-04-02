@@ -1,6 +1,7 @@
+import Component from "../../component.js"
 import { Z } from "../../ui/zeyo.js"
 
-export default abstract class FormElement {
+export default abstract class FormElement implements Component{
     label = ""
     placeholder = ""
     element = new Z("input")

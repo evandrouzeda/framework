@@ -12,7 +12,7 @@ export default class ComponentForm {
         return this.main.addClass("d-grid", "gap-m").children(
             new Z("h2").object(e => e.element.innerText = form.title),
             ...Object.keys(fields).map(k=>{
-                properties[k] = Object.assign(new Fields.list[fields[k].type](), fields[k])
+                properties[k] = Object.assign(Fields.list[fields[k].type], fields[k])
                 const z = properties[k].create()
                 properties[k].setValue(form.model[k])
                 return z
