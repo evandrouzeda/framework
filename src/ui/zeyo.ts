@@ -30,11 +30,11 @@ abstract class CssClass extends Root{
         this.element.classList.add(...tokens)
         return this
     }
-    abstract children(...child: Zeyo[]): Zeyo
 }
 
 interface Atributes {
     "type": string
+    "placeholder": string
 }
 abstract class Atribute extends CssClass{
     constructor(tagName: keyof HTMLElementTagNameMap){
@@ -45,7 +45,6 @@ abstract class Atribute extends CssClass{
         this.element.setAttribute(key, value)
         return this
     }
-    abstract children(...child: Zeyo[]): Zeyo
 }
 
 class Create extends Atribute{   
@@ -60,7 +59,7 @@ class Create extends Atribute{
         return this
     }
 }
-export {Create as $}
+export {Create as Z}
 
 
 

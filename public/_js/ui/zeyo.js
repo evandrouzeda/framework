@@ -36,4 +36,4 @@ class Create extends Atribute {
         return this;
     }
 }
-export { Create as $ };
+export { Create as Z };

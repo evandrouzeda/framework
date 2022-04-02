@@ -1,6 +1,7 @@
 import App from "./app.js"
 import Login from "./pages/login.js"
 import Page from "./pages/page.js"
+import { Z } from "./ui/zeyo.js"
 
 console.log(window.location.pathname)
 
@@ -44,17 +45,26 @@ App.pages.push(login)
 App.pages.push({
     route: "/dashboard",
     auth: "accessController",
-    children: [raiz, estacionameto]
+    children: [raiz, estacionameto],
+    async create() {
+        return new Z("div")
+    }
 })
 App.pages.push({
     route: "/estacionamento",
     auth: "",
-    children: [raiz, dashboard]
+    children: [raiz, dashboard],
+    async create(){
+        return new Z("div")
+    }
 })
 App.pages.push({
     route: "/social/:usuario",
     auth: "",
-    children: [raiz, dashboard]
+    children: [raiz, dashboard],
+    async create(){
+        return new Z("div")
+    }
 })
 
 App.init()

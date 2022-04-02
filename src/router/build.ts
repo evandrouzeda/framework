@@ -1,8 +1,9 @@
 import App from "../app.js"
 import Page from "../pages/page.js"
+import { Z } from "../ui/zeyo.js"
 
 export default class Build {
-    static build(path: string){
+    static async build(path: string) {
         //App.root.innerHTML = ""
         const params: { [key: string]: string } = {}
         const page = App.pages.find(p => {
@@ -19,14 +20,18 @@ export default class Build {
                 return true
             }
         })
-        const template: Page = {
-            route: "/404",
-            title: "not found",
-            children: [document.createElement("div")]
-        }
-        // aqui tem que chamar o builder para construir a pagina, passando os elementos por parametro
-        if (page) Object.assign(template, page)
 
-        template.children!.forEach(e => App.root.appendChild(e))
+        // aqui tem que chamar o builder para construir a pagina, passando os elementos por parametro
+        if (page)
+            App.root.appendChild((await page!.create()).element)
+        else App.root.appendChild((await {
+            route: "/404",
+            async create() {
+                return new Z("h1").object(e => {
+                    e.element.innerText = "Pagina nao encontrada"
+                })
+            }
+        }.create()).element)
+
     }
 }

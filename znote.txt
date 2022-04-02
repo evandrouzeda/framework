@@ -11,3 +11,5 @@ tenho que fazer uma forma meio jquery de criar os elementos html
             $("h1").innerText("Ola Mundo"),
             $("h3").innerText("Mundo ola")
         )
+
+para criar os componentes posso adicionar um atributo main que contera o Zeyo dai passo o main em cada subelemento e posso usar o children para sub do componente
