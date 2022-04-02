@@ -6,11 +6,16 @@ import StateEsqueci from "./esqueci.js";
 import FormState from "./_state.js";
 
 export default class StateLogin implements FormState {
-    esqueci(): [FormState, typeof FormLogin] {
-        return [new StateEsqueci(), FormEsqueci]
+    texts = {
+        pergunta: "Não possui uma conta?",
+        acao: "Crie sua conta"
     }
-    acao(): [FormState, typeof FormLogin] {
-        return [new StateCreate(), FormSignup]
+    form: typeof FormLogin = FormLogin;
+    esqueci(): FormState {
+        return new StateEsqueci()
+    }
+    acao(): FormState {
+        return new StateCreate()
     }
 
 }

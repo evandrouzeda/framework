@@ -3,6 +3,8 @@ import FormLogin from "../form/login"
 import FormSignup from "../form/signup.js"
 
 export default interface FormState {
-    esqueci(): [FormState, typeof FormLogin]
-    acao(): [FormState, typeof FormLogin]
+    texts: {pergunta: string; acao: string}
+    form: typeof FormLogin
+    esqueci(): FormState
+    acao(): FormState
 }

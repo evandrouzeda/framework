@@ -1,10 +1,11 @@
 import App from "./app.js"
+import RepositoryLocalStorage from "./core/repository/localStorage.js"
 import Login from "./pages/login.js"
 import Page from "./pages/page.js"
 import { Z } from "./ui/zeyo.js"
 
 console.log(window.location.pathname)
-
+App.repository = new RepositoryLocalStorage()
 const raiz = {
     text: "Raiz",
     route: "/"
