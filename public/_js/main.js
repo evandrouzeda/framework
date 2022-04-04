@@ -8,7 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import App from "./app.js";
+import Button from "./components/button.js";
 import RepositoryLocalStorage from "./core/repository/localStorage.js";
+import Estacionamento from "./pages/estacionamento.js";
 import Login from "./pages/login.js";
 import { Z } from "./ui/zeyo.js";
 console.log(window.location.pathname);
@@ -20,10 +22,6 @@ const raiz = {
 const estacionameto = {
     text: "Estacionamento",
     route: "/estacionamento"
-};
-const dashboard = {
-    text: "Dashboard",
-    route: "/dashboard"
 };
 const back = document.createElement("button");
 back.innerText = "Voltar";
@@ -39,43 +37,48 @@ App.pages.push(login);
 App.pages.push({
     route: "/dashboard",
     auth: "accessController",
+    main: new Z("div"),
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            return new Z("div").children(...[raiz, estacionameto].map(b => new Z("button").object(z => {
-                z.element.innerText = b.text;
-                z.element.onclick = () => {
-                    App.route.push(b.route);
-                };
-            })));
+            return new Z("div").children(...[raiz, estacionameto].map(b => new Button().create(b)));
         });
     }
 });
-App.pages.push({
-    route: "/estacionamento",
-    auth: "",
-    create() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return new Z("main").children(...[raiz, dashboard].map(b => new Z("button").object(z => {
-                z.element.innerText = b.text;
-                z.element.onclick = () => {
-                    App.route.push(b.route);
-                };
-            })));
-        });
-    }
-});
+App.pages.push(new Estacionamento);
 App.pages.push({
     route: "/social/:usuario",
     auth: "",
+    main: new Z("div"),
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            return new Z("div").children(...[raiz, dashboard].map(b => new Z("button").object(z => {
-                z.element.innerText = b.text;
-                z.element.onclick = () => {
-                    App.route.push(b.route);
-                };
-            })));
+            return new Z("div").children(...[raiz, estacionameto].map(b => new Button().create(b)));
         });
     }
 });
 App.init();
+const object = {
+    name: "evandro"
+};
+const myproxy = new Proxy(object, {
+    set: (target, key, value) => {
+        console.log(key, value);
+        target[key] = value;
+        return true;
+    },
+});
+myproxy.name = "test";
+object.name = "test2";
+console.log(myproxy.name);
+console.log(object.name);
+function teste(t1, t2) {
+    return [t1, t2].map(e => new Proxy(e, {
+        set: (target, key, value) => {
+            console.log(key, value);
+            target[key] = value;
+            return true;
+        },
+    }));
+}
+const [t1, t2] = teste({ name: "t1" }, { name: "t2" });
+t1.name = "teste1";
+t2.name = "teste2";

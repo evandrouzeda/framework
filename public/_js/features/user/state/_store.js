@@ -11,7 +11,8 @@ export default class FormStore {
         this.state = transitions[transition]();
         this.form.create(new this.state.form(new RepositoryLocalStorage, this.model));
         console.log(this.state.texts);
-        this.opt.create(this.state.texts);
+        Object.assign(this.texts, this.state.texts);
+        //this.opt.create(this.state.texts)
     }
 }
 FormStore.form = new Proxy(ComponentForm, {
@@ -33,3 +34,14 @@ FormStore.opt = new Proxy(new LoginOpt(), {
     }
 });
 FormStore.state = new StateLogin();
+FormStore.texts = new Proxy({
+    pergunta: "Não possui uma conta?",
+    acao: "Crie sua conta"
+}, {
+    set: (target, key, value) => {
+        console.log(key, value);
+        target[key] = value;
+        FormStore.opt.create(target);
+        return true;
+    }
+});

@@ -23,6 +23,17 @@ export default class FormStore {
         }
     })
     static state: FormState = new StateLogin()
+    static texts: {pergunta: string; acao: string} = new Proxy({
+        pergunta: "Não possui uma conta?",
+        acao: "Crie sua conta"
+    }, {
+        set: (target, key, value) => {
+            console.log(key, value)
+            target[key as keyof typeof target] = value
+            FormStore.opt.create(target)
+            return true
+        }
+    })
     static changeState(transition: string) {
         const transitions: { [key: string]: () => FormState } = {
             "esqueci": this.state.esqueci,
@@ -31,6 +42,7 @@ export default class FormStore {
         this.state = transitions[transition]()
         this.form.create(new this.state.form(new RepositoryLocalStorage, this.model))
         console.log(this.state.texts)
-        this.opt.create(this.state.texts)
+        Object.assign(this.texts, this.state.texts)
+        //this.opt.create(this.state.texts)
     }
 }
