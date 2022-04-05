@@ -16,10 +16,13 @@ export default class Estacionamento implements Page{
             text: "Raiz",
             route: "/"
         }
-        function teste<T extends {
-            text: string;
-            route: string;
-        }>(obj: T, component: Component): [T, Component] {
+        interface TEste{
+            "button": {
+                text: string;
+                route: string;
+            }
+        }
+        function teste<T extends keyof TEste>(obj: TEste[T], component: Component): [TEste[T], Component] {
             const newComponent = new Proxy(component, {
                 set: (target, key, value) => {
                     if (key === "main")
