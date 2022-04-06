@@ -16,9 +16,31 @@ abstract class Root implements Zeyo{
     abstract children(...child: Zeyo[]): Zeyo
     abstract atrib<K extends keyof Atributes>(key: K, value: string): Zeyo
     abstract atribs(atribs: { [key: string]: string }): Zeyo 
+    abstract click(cb: (e: MouseEvent) => void): Zeyo
+    abstract text(t: string): Zeyo
 }
 
-abstract class CssClass extends Root{
+abstract class Text extends Root {
+    constructor(tagName: keyof HTMLElementTagNameMap){
+        super(tagName)
+    }
+    text(t: string): Zeyo{
+        this.element.innerText = t
+        return this
+    }
+}
+
+abstract class On extends Text {
+    constructor(tagName: keyof HTMLElementTagNameMap){
+        super(tagName)
+    }
+    click(cb: (e: MouseEvent) => void) {
+        this.element.onclick = cb
+        return this
+    }
+}
+
+abstract class CssClass extends On{
     constructor(tagName: keyof HTMLElementTagNameMap){
         super(tagName)
     }

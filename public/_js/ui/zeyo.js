@@ -7,7 +7,25 @@ class Root {
         return this;
     }
 }
-class CssClass extends Root {
+class Text extends Root {
+    constructor(tagName) {
+        super(tagName);
+    }
+    text(t) {
+        this.element.innerText = t;
+        return this;
+    }
+}
+class On extends Text {
+    constructor(tagName) {
+        super(tagName);
+    }
+    click(cb) {
+        this.element.onclick = cb;
+        return this;
+    }
+}
+class CssClass extends On {
     constructor(tagName) {
         super(tagName);
     }

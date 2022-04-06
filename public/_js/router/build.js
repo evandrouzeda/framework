@@ -32,6 +32,7 @@ export default class Build {
                 }
             });
             // aqui tem que chamar o builder para construir a pagina, passando os elementos por parametro
+            // tem  que veirificar se a pagina tem layout, e entao colocar a pagina dentro do layout 
             if (page)
                 App.root.appendChild((yield page.create()).element);
             else

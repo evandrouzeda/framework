@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import App from "./app.js";
 import Button from "./components/button.js";
+import AppLayout from "./components/layouts/app.js";
 import RepositoryLocalStorage from "./core/repository/localStorage.js";
 import Estacionamento from "./pages/estacionamento.js";
 import Login from "./pages/login.js";
@@ -40,7 +41,7 @@ App.pages.push({
     main: new Z("div"),
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            return new Z("div").children(...[raiz, estacionameto].map(b => new Button().create(b)));
+            return AppLayout.inner(new Z("div").children(...[raiz, estacionameto].map(b => new Button().create(b))));
         });
     }
 });
@@ -51,7 +52,7 @@ App.pages.push({
     main: new Z("div"),
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            return new Z("div").children(...[raiz, estacionameto].map(b => new Button().create(b)));
+            return AppLayout.inner(new Z("div").children(...[raiz, estacionameto].map(b => new Button().create(b))));
         });
     }
 });
