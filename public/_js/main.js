@@ -57,29 +57,3 @@ App.pages.push({
     }
 });
 App.init();
-const object = {
-    name: "evandro"
-};
-const myproxy = new Proxy(object, {
-    set: (target, key, value) => {
-        console.log(key, value);
-        target[key] = value;
-        return true;
-    },
-});
-myproxy.name = "test";
-object.name = "test2";
-console.log(myproxy.name);
-console.log(object.name);
-function teste(t1, t2) {
-    return [t1, t2].map(e => new Proxy(e, {
-        set: (target, key, value) => {
-            console.log(key, value);
-            target[key] = value;
-            return true;
-        },
-    }));
-}
-const [t1, t2] = teste({ name: "t1" }, { name: "t2" });
-t1.name = "teste1";
-t2.name = "teste2";

@@ -31,7 +31,7 @@ export default function Watch(obj, component) {
         set(target, key, value, receiver) {
             target[key] = value;
             if (this.parent === null)
-                newComponent.create(target);
+                newComponent.create(receiver);
             else
                 this.parent[this.key] = target;
             return true;

@@ -5,7 +5,12 @@ export default class CardSimple {
     }
     create(o) {
         //Todo: aqui teria que chamar um adapter do tipo presentar para adaptar o objeto para o componente
-        return this.main = new Z("div").children(new Z("h3").text(o.nome)).click(() => o.nome = "clicou");
+        return this.main = new Z("div").children(new Z("h3").text(o.nome)).click(() => {
+            if (o.nome === "teste")
+                o.nome = "clicou";
+            else
+                o.nome = "teste";
+        });
     }
     ;
 }

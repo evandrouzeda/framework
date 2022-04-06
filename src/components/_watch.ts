@@ -31,7 +31,7 @@ export default function Watch(obj: any, component: Component): [any, Component] 
         set(target: any, key: string, value: any, receiver: any) {
             target[key as keyof typeof target] = value
             if (this.parent === null)
-                newComponent.create(target)
+                newComponent.create(receiver)
             else this.parent[this.key] = target
             return true
         }
