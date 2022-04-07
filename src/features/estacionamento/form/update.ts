@@ -3,13 +3,14 @@ import Form from "../../../core/entity/form.js"
 import Repository from "../../../core/repository/_repository.js"
 import Estacionamento from "../domain/estacionamento.js"
 
-export default class FormEstacionamento extends Form{
+export default class FormUpdateEstacionamento extends Form{
     constructor(repository: Repository, model: Estacionamento){
-        super(repository, model, "Criar Estacionamento", "create", "Criar")
+        super(repository, model, "Criar Estacionamento", "update", "Criar")
     }
     async getFields(): Promise<{[key: string]: Field}>{
         return {
-            "nome": new Field("text", "Nome", "Nome")
+            "nome": new Field("text", "Nome", "Nome"),
+            "vagas": new Field("text", "Vagas", "Vaga")
         }
     }
 }

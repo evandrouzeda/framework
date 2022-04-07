@@ -35,7 +35,6 @@ export default function Watch(obj: any, component: Component): [any, Component] 
             else this.parent[this.key] = target
             return true
         }
-
     }
     return [new Proxy(obj, new Watcher(null, "")), newComponent]
 }

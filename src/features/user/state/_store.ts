@@ -6,14 +6,14 @@ import FormState from "./_state.js";
 
 export default class FormStore {
     static model: any
-    static form = new Proxy(ComponentForm, {
+    /* static form = new Proxy(new ComponentForm(), {
         set: (target, key, value) => {
             if (key === "main")
                 target.main.element.parentElement?.replaceChild(value.element, target.main.element);
             target[key as keyof typeof target] = value
             return true
         }
-    })
+    }) */
     static opt = new Proxy(new LoginOpt(), {
         set: (target, key, value) => {
             if (key === "main")
@@ -40,7 +40,7 @@ export default class FormStore {
             "acao": this.state.acao,
         }
         this.state = transitions[transition]()
-        this.form.create(new this.state.form(new RepositoryLocalStorage, this.model))
+        //this.form.create(new this.state.form(new RepositoryLocalStorage, this.model))
         console.log(this.state.texts)
         Object.assign(this.texts, this.state.texts)
         //this.opt.create(this.state.texts)

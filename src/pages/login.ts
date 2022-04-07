@@ -21,7 +21,7 @@ export default class Login implements Page {
             ),
             new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100", "login")
                 .children(
-                    await FormStore.form.create(new state.form(App.repository, FormStore.model)),
+                    //await FormStore.form.create(new state.form(App.repository, FormStore.model)),
                     FormStore.opt.create(state.texts)
                 )
         )

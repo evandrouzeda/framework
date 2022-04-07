@@ -7,7 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import App from "../app.js";
 import User from "../features/user/domain/entity/user.js";
 import StateLogin from "../features/user/state/login.js";
 import FormStore from "../features/user/state/_store.js";
@@ -22,7 +21,9 @@ export default class Login {
             FormStore.model = new User();
             const state = new StateLogin();
             return new Z("main").addClass("d-grid", "login").children(new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100").children(new Z("h1").object(z => z.element.innerText = "Bem-Vindo de volta!!!")), new Z("div").addClass("d-grid", "gap-m", "jc-center", "ac-center", "h-100", "login")
-                .children(yield FormStore.form.create(new state.form(App.repository, FormStore.model)), FormStore.opt.create(state.texts)));
+                .children(
+            //await FormStore.form.create(new state.form(App.repository, FormStore.model)),
+            FormStore.opt.create(state.texts)));
         });
     }
 }

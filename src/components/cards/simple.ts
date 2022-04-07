@@ -1,5 +1,8 @@
+import App from "../../app.js";
+import FormUpdateEstacionamento from "../../features/estacionamento/form/update.js";
 import { Zeyo } from "../../ui/lib.js";
 import { Z } from "../../ui/zeyo.js";
+import Bottom from "../modal/bottom.js";
 import Component from "../_component.js";
 
 export default class CardSimple implements Component {
@@ -9,9 +12,7 @@ export default class CardSimple implements Component {
         return this.main = new Z("div").children(
             new Z("h3").text(o.nome)
         ).click(() => {
-            if (o.nome === "teste")
-                o.nome = "clicou"
-            else o.nome = "teste"
+            Bottom.show(new FormUpdateEstacionamento(App.repository, o))
         })
     };
 }
