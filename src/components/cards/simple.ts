@@ -10,7 +10,8 @@ export default class CardSimple implements Component {
     create(o: any): Zeyo {
         //Todo: aqui teria que chamar um adapter do tipo presentar para adaptar o objeto para o componente
         return this.main = new Z("div").children(
-            new Z("h3").text(o.nome)
+            new Z("h3").text(o.nome),
+            new Z("p").text(o.vagas)
         ).click(() => {
             Bottom.show(new FormUpdateEstacionamento(App.repository, o))
         })

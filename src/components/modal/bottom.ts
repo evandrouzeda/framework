@@ -17,11 +17,16 @@ export default class Bottom implements Component {
         })
     }
 
+    static showing = false
     static modal = new Bottom()
     static async show(form?: Form) {
-        if (form)
+        if (form){
+            window.location.hash = "modal"
             App.root.appendChild((await this.modal.create(form!)).element)
-        else
+        } else{
+            //window.history.replaceState("", document.title, window.location.pathname)
+            //if(window.location.hash.length > 1) window.history.back()
             this.modal.main.element.remove()
+        }
     }
 }

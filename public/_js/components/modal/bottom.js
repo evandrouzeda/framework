@@ -24,11 +24,17 @@ export default class Bottom {
     }
     static show(form) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (form)
+            if (form) {
+                window.location.hash = "modal";
                 App.root.appendChild((yield this.modal.create(form)).element);
-            else
+            }
+            else {
+                //window.history.replaceState("", document.title, window.location.pathname)
+                //if(window.location.hash.length > 1) window.history.back()
                 this.modal.main.element.remove();
+            }
         });
     }
 }
+Bottom.showing = false;
 Bottom.modal = new Bottom();

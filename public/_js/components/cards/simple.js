@@ -8,7 +8,7 @@ export default class CardSimple {
     }
     create(o) {
         //Todo: aqui teria que chamar um adapter do tipo presentar para adaptar o objeto para o componente
-        return this.main = new Z("div").children(new Z("h3").text(o.nome)).click(() => {
+        return this.main = new Z("div").children(new Z("h3").text(o.nome), new Z("p").text(o.vagas)).click(() => {
             Bottom.show(new FormUpdateEstacionamento(App.repository, o));
         });
     }
