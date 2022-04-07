@@ -8,7 +8,7 @@ export default class Bottom implements Component {
     main = new Z("div")
     async create(form: Form) {
         return this.main = new Z("div").addClass("modal-container").children(
-            new Z("div").addClass("modal").children(
+            new Z("div").addClass("modal", "d-grid").children(
                 await new ComponentForm().create(form)
             )
         ).object(z => z.element.onclick = e => {

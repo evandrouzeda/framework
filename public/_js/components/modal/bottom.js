@@ -16,7 +16,7 @@ export default class Bottom {
     }
     create(form) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.main = new Z("div").addClass("modal-container").children(new Z("div").addClass("modal").children(yield new ComponentForm().create(form))).object(z => z.element.onclick = e => {
+            return this.main = new Z("div").addClass("modal-container").children(new Z("div").addClass("modal", "d-grid").children(yield new ComponentForm().create(form))).object(z => z.element.onclick = e => {
                 if (e.target === z.element)
                     Bottom.show();
             });

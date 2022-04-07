@@ -16,14 +16,16 @@ export default class ComponentForm {
         this.properties = {}
         this.fields = await form.getFields()
         console.log(this.fields)
-        return this.main = new Z("form").addClass("d-grid", "gap-m").children(
-            new Z("h2").object(e => e.element.innerText = form.title),
-            ...Object.keys(this.fields).map(k => {
-                this.properties[k] = Object.assign(new Fields.list[this.fields[k].type](), this.fields[k])
-                const z = this.properties[k].create()
-                this.properties[k].setValue(form.model[k])
-                return z
-            }),
+        return this.main = new Z("form").addClass("d-grid", "gap-m", "ac-between").children(
+            new Z("div").addClass("d-grid", "gap-m").children(
+                new Z("h2").object(e => e.element.innerText = form.title),
+                ...Object.keys(this.fields).map(k => {
+                    this.properties[k] = Object.assign(new Fields.list[this.fields[k].type](), this.fields[k])
+                    const z = this.properties[k].create()
+                    this.properties[k].setValue(form.model[k])
+                    return z
+                })
+            ),
             new Z("button").object(e => e.element.innerText = form.action)
         ).object(z => z.element.onsubmit = e => {
             e.preventDefault()
@@ -32,10 +34,10 @@ export default class ComponentForm {
                     form.model[key] = this.properties[key].getValue()
             }
             console.log(form);
-            if(form.controller === "create")
-            Create.execute(form)
+            if (form.controller === "create")
+                Create.execute(form)
             else
-            Update.execute(form)
+                Update.execute(form)
             //TODO: aqui tem que chamar o controller
             //App.route.push("/estacionamento")
         })

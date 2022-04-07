@@ -73,7 +73,9 @@
 .ac-center {
     align-content: center;
 }
-
+.ac-between {
+    align-content: space-between;
+}
 .ac-start {
     align-content: start;
 }
@@ -155,7 +157,7 @@ button,
     min-height: 50vh;
     position: absolute;
     bottom: 0;
-    align-content: space-between;
+    /* align-content: space-between; */
 }
 
 .card {

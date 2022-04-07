@@ -5,7 +5,7 @@ import Estacionamento from "../domain/estacionamento.js"
 
 export default class FormUpdateEstacionamento extends Form{
     constructor(repository: Repository, model: Estacionamento){
-        super(repository, model, "Criar Estacionamento", "update", "Criar")
+        super(repository, model, model.nome, "update", "Atualizar")
     }
     async getFields(): Promise<{[key: string]: Field}>{
         return {

@@ -22,12 +22,12 @@ export default class ComponentForm {
             this.properties = {};
             this.fields = yield form.getFields();
             console.log(this.fields);
-            return this.main = new Z("form").addClass("d-grid", "gap-m").children(new Z("h2").object(e => e.element.innerText = form.title), ...Object.keys(this.fields).map(k => {
+            return this.main = new Z("form").addClass("d-grid", "gap-m", "ac-between").children(new Z("div").addClass("d-grid", "gap-m").children(new Z("h2").object(e => e.element.innerText = form.title), ...Object.keys(this.fields).map(k => {
                 this.properties[k] = Object.assign(new Fields.list[this.fields[k].type](), this.fields[k]);
                 const z = this.properties[k].create();
                 this.properties[k].setValue(form.model[k]);
                 return z;
-            }), new Z("button").object(e => e.element.innerText = form.action)).object(z => z.element.onsubmit = e => {
+            })), new Z("button").object(e => e.element.innerText = form.action)).object(z => z.element.onsubmit = e => {
                 e.preventDefault();
                 for (const key in this.fields) {
                     if (Object.prototype.hasOwnProperty.call(form.model, key))
