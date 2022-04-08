@@ -9,15 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import Field from "../../../core/entity/field.js";
 import Form from "../../../core/entity/form.js";
-export default class FormUpdateEstacionamento extends Form {
+export default class FormUpdateCarro extends Form {
     constructor(repository, model) {
-        super(repository, model, model.nome, "updateestacionamento", "Atualizar");
+        super(repository, model, model.nome, "updatecarro", "Atualizar");
     }
     getFields() {
         return __awaiter(this, void 0, void 0, function* () {
             return {
                 "nome": new Field("text", "Nome", "Nome"),
-                "vagas": new Field("text", "Vagas", "Vaga")
+                "placa": new Field("text", "Placa", "Placa")
             };
         });
     }

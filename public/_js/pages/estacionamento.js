@@ -13,6 +13,9 @@ import AppLayout from "../components/layouts/app.js";
 import ListaHorizontal from "../components/listaHorizontal.js";
 import Bottom from "../components/modal/bottom.js";
 import Watch from "../components/_watch.js";
+import Carro from "../features/carro/domain/carro.js";
+import FormCarro from "../features/carro/form/carro.js";
+import ListCarro from "../features/carro/list.js";
 import Estacionamento from "../features/estacionamento/domain/estacionamento.js";
 import FormEstacionamento from "../features/estacionamento/form/estacionamento.js";
 import ListEstacionamento from "../features/estacionamento/list.js";
@@ -24,16 +27,23 @@ export default class PageEstacionamento {
     }
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            const estacionamentoList = [];
             const [list, lista] = Watch({
-                adapter: "estacionamentocardsimples",
+                adapter: "estacionamento",
                 title: "Estacionamentos",
-                list: estacionamentoList
+                list: []
             }, new ListaHorizontal(CardSimple));
             ListEstacionamento.list = list;
+            const [listcarro, listacarro] = Watch({
+                adapter: "carro",
+                title: "Carros",
+                list: []
+            }, new ListaHorizontal(CardSimple));
+            ListCarro.list = listcarro;
             return this.main = AppLayout.inner(new Z("main").children(new Z("h1").text("Estacionamento"), new Z("button").text("Adicionar").click(() => __awaiter(this, void 0, void 0, function* () {
                 Bottom.show(new FormEstacionamento(App.repository, new Estacionamento("")));
-            })), yield lista.create(list)));
+            })), yield lista.create(list), new Z("button").text("Adicionar").click(() => __awaiter(this, void 0, void 0, function* () {
+                Bottom.show(new FormCarro(App.repository, new Carro("", "")));
+            })), yield listacarro.create(listcarro)));
         });
     }
 }

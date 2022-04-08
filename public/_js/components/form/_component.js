@@ -7,8 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import Create from "../../features/estacionamento/controller/create.js";
-import Update from "../../features/estacionamento/controller/update.js";
+import Controllers from "../../core/controller/_list.js";
 import { Z } from "../../ui/zeyo.js";
 import Fields from "./_list.js";
 export default class ComponentForm {
@@ -34,10 +33,7 @@ export default class ComponentForm {
                         form.model[key] = this.properties[key].getValue();
                 }
                 console.log(form);
-                if (form.controller === "create")
-                    Create.execute(form);
-                else
-                    Update.execute(form);
+                Controllers.list[form.controller].execute(form);
                 //TODO: aqui tem que chamar o controller
                 //App.route.push("/estacionamento")
             });

@@ -5,7 +5,7 @@ import Estacionamento from "../domain/estacionamento.js"
 
 export default class FormEstacionamento extends Form{
     constructor(repository: Repository, model: Estacionamento){
-        super(repository, model, "Criar Estacionamento", "create", "Criar")
+        super(repository, model, "Criar Estacionamento", "createestacionamento", "Criar")
     }
     async getFields(): Promise<{[key: string]: Field}>{
         return {

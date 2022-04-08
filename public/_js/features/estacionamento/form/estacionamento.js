@@ -11,7 +11,7 @@ import Field from "../../../core/entity/field.js";
 import Form from "../../../core/entity/form.js";
 export default class FormEstacionamento extends Form {
     constructor(repository, model) {
-        super(repository, model, "Criar Estacionamento", "create", "Criar");
+        super(repository, model, "Criar Estacionamento", "createestacionamento", "Criar");
     }
     getFields() {
         return __awaiter(this, void 0, void 0, function* () {

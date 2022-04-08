@@ -1,4 +1,5 @@
 import App from "../../app.js"
+import Controllers from "../../core/controller/_list.js"
 import Field from "../../core/entity/field.js"
 import Form from "../../core/entity/form.js"
 import Create from "../../features/estacionamento/controller/create.js"
@@ -34,10 +35,8 @@ export default class ComponentForm {
                     form.model[key] = this.properties[key].getValue()
             }
             console.log(form);
-            if (form.controller === "create")
-                Create.execute(form)
-            else
-                Update.execute(form)
+
+            Controllers.list[form.controller].execute(form)
             //TODO: aqui tem que chamar o controller
             //App.route.push("/estacionamento")
         })
