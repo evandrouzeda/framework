@@ -1,5 +1,8 @@
 workflow com typescript
 https://www.youtube.com/watch?v=Y4IiQY9dNRA&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&index=7
 
-
-Tenho que fazer um metodo para usar o proxy genericamente src/features/user/state/_store.ts
+    [] - tem que fazer um controller para controlar o hash e montar o modal dinamicamente
+    [] - tem que fazer uma lista de form, presenter, controller e etc e uma global de cada tipo para
+         concatenar aos conteudos das outras listas
+    [] - tem que verificar quando monta um componente se o objeto tem um presenter para adaptar o
+         objeto com componente

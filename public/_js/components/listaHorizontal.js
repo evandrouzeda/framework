@@ -8,16 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Z } from "../ui/zeyo.js";
-import CardSimple from "./cards/simple.js";
 import Watch from "./_watch.js";
 export default class ListaHorizontal {
-    constructor() {
+    constructor(component) {
         this.main = new Z("div");
+        this.component = component;
     }
     create(obj) {
         return __awaiter(this, void 0, void 0, function* () {
             return this.main = new Z("div").children(new Z("h2").text(obj.title), ...(yield Promise.all(obj.list.map((e) => __awaiter(this, void 0, void 0, function* () {
-                const [es, c] = Watch(e, new CardSimple());
+                const [es, c] = Watch(e, new this.component(obj.adapter));
                 return yield c.create(es);
             })))));
         });

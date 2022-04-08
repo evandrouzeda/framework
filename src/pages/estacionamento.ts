@@ -1,9 +1,11 @@
 import App from "../app.js";
 import Button from "../components/button.js";
+import CardSimple from "../components/cards/simple.js";
 import AppLayout from "../components/layouts/app.js";
 import ListaHorizontal from "../components/listaHorizontal.js";
 import Bottom from "../components/modal/bottom.js";
 import Component from "../components/_component.js";
+import { ListParam } from "../components/_list.js";
 import Watch from "../components/_watch.js";
 import Estacionamento from "../features/estacionamento/domain/estacionamento.js";
 import FormEstacionamento from "../features/estacionamento/form/estacionamento.js";
@@ -20,12 +22,11 @@ export default class PageEstacionamento implements Page {
     main = new Z("main");
     async create() {
         const estacionamentoList: Estacionamento[] = []
-        let list: {title: string; list: Estacionamento[]}
-        let lista: Component
-        [list, lista] = Watch({
+        const [list, lista]: [ListParam, Component] = Watch({
+            adapter: "estacionamentocardsimples",
             title: "Estacionamentos",
             list: estacionamentoList
-        }, new ListaHorizontal())
+        }, new ListaHorizontal(CardSimple))
         ListEstacionamento.list = list
         return this.main = AppLayout.inner(
             new Z("main").children(

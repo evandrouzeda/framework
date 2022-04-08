@@ -3,8 +3,9 @@ import FormUpdateEstacionamento from "../../features/estacionamento/form/update.
 import { Z } from "../../ui/zeyo.js";
 import Bottom from "../modal/bottom.js";
 export default class CardSimple {
-    constructor() {
+    constructor(adapter) {
         this.main = new Z("div");
+        this.adapter = adapter;
     }
     create(o) {
         //Todo: aqui teria que chamar um adapter do tipo presentar para adaptar o objeto para o componente

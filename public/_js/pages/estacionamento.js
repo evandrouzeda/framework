@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import App from "../app.js";
+import CardSimple from "../components/cards/simple.js";
 import AppLayout from "../components/layouts/app.js";
 import ListaHorizontal from "../components/listaHorizontal.js";
 import Bottom from "../components/modal/bottom.js";
@@ -24,12 +25,11 @@ export default class PageEstacionamento {
     create() {
         return __awaiter(this, void 0, void 0, function* () {
             const estacionamentoList = [];
-            let list;
-            let lista;
-            [list, lista] = Watch({
+            const [list, lista] = Watch({
+                adapter: "estacionamentocardsimples",
                 title: "Estacionamentos",
                 list: estacionamentoList
-            }, new ListaHorizontal());
+            }, new ListaHorizontal(CardSimple));
             ListEstacionamento.list = list;
             return this.main = AppLayout.inner(new Z("main").children(new Z("h1").text("Estacionamento"), new Z("button").text("Adicionar").click(() => __awaiter(this, void 0, void 0, function* () {
                 Bottom.show(new FormEstacionamento(App.repository, new Estacionamento("")));
