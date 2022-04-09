@@ -11,7 +11,6 @@ import App from "../app.js";
 import CardSimple from "../components/cards/simple.js";
 import AppLayout from "../components/layouts/app.js";
 import ListaHorizontal from "../components/listaHorizontal.js";
-import Bottom from "../components/modal/bottom.js";
 import Watch from "../components/_watch.js";
 import Carro from "../features/carro/domain/carro.js";
 import FormCarro from "../features/carro/form/carro.js";
@@ -40,9 +39,9 @@ export default class PageEstacionamento {
             }, new ListaHorizontal(CardSimple));
             ListCarro.list = listcarro;
             return this.main = AppLayout.inner(new Z("main").children(new Z("h1").text("Estacionamento"), new Z("button").text("Adicionar").click(() => __awaiter(this, void 0, void 0, function* () {
-                Bottom.show(new FormEstacionamento(App.repository, new Estacionamento("")));
+                App.route.hash.push("modal", new FormEstacionamento(App.repository, new Estacionamento("")));
             })), yield lista.create(list), new Z("button").text("Adicionar").click(() => __awaiter(this, void 0, void 0, function* () {
-                Bottom.show(new FormCarro(App.repository, new Carro("", "")));
+                App.route.hash.push("modal", new FormCarro(App.repository, new Carro("", "")));
             })), yield listacarro.create(listcarro)));
         });
     }

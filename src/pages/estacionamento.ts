@@ -40,11 +40,11 @@ export default class PageEstacionamento implements Page {
             new Z("main").children(
                 new Z("h1").text("Estacionamento"),
                 new Z("button").text("Adicionar").click(async ()=> {
-                    Bottom.show(new FormEstacionamento(App.repository, new Estacionamento("")))
+                    App.route.hash.push("modal", new FormEstacionamento(App.repository, new Estacionamento("")))
                 }),
                 await lista.create(list),
                 new Z("button").text("Adicionar").click(async ()=> {
-                    Bottom.show(new FormCarro(App.repository, new Carro("", "")))
+                    App.route.hash.push("modal", new FormCarro(App.repository, new Carro("", "")))
                 }),
                 await listacarro.create(listcarro)
             )

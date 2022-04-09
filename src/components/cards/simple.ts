@@ -25,7 +25,7 @@ export default class CardSimple implements Component {
             new Z("h3").text(this.fields.title),
             new Z("p").text(this.fields.description)
             ).click(() => {
-            Bottom.show(new Forms.list[adapter.action](App.repository, o))
+            App.route.hash.push("modal", new Forms.list[adapter.action](App.repository, o))
         })
     };
 }

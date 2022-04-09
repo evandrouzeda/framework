@@ -13,7 +13,7 @@ export default class Bottom implements Component {
             )
         ).object(z => z.element.onclick = e => {
             if (e.target === z.element)
-                Bottom.show()
+                App.route.hash.remove()
         })
     }
 
