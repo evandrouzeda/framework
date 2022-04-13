@@ -4,6 +4,7 @@ import FormUpdateEstacionamento from "../../features/estacionamento/form/update.
 import { Zeyo } from "../../ui/lib.js";
 import { Z } from "../../ui/zeyo.js";
 import Bottom from "../modal/bottom.js";
+import Modal from "../modal/modal.js";
 import Component from "../_component.js";
 import Adapters from "./adapter/_list.js";
 
@@ -25,7 +26,7 @@ export default class CardSimple implements Component {
             new Z("h3").text(this.fields.title),
             new Z("p").text(this.fields.description)
             ).click(() => {
-            App.route.hash.push("modal", new Forms.list[adapter.action](App.repository, o))
+            Modal.show(new Forms.list[adapter.action](App.repository, o))
         })
     };
 }

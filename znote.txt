@@ -3,7 +3,8 @@ https://www.youtube.com/watch?v=Y4IiQY9dNRA&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwK
 
 
      Para mostrar o modal eu tenho que chamar um controller do modal e entao esse chamará o hash
-    [] - tem que fazer um controller para controlar o hash e montar o modal dinamicamente
+     
+    [x] - tem que fazer um controller para controlar o hash e montar o modal dinamicamente
     [x] - tem que fazer uma lista de form, presenter, controller e etc e uma global de cada tipo para
          concatenar aos conteudos das outras listas
     [x] - tem que verificar quando monta um componente se o objeto tem um presenter para adaptar o

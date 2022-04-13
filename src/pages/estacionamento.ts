@@ -4,6 +4,7 @@ import CardSimple from "../components/cards/simple.js";
 import AppLayout from "../components/layouts/app.js";
 import ListaHorizontal from "../components/listaHorizontal.js";
 import Bottom from "../components/modal/bottom.js";
+import Modal from "../components/modal/modal.js";
 import Component from "../components/_component.js";
 import { ListParam } from "../components/_list.js";
 import Watch from "../components/_watch.js";
@@ -40,11 +41,11 @@ export default class PageEstacionamento implements Page {
             new Z("main").children(
                 new Z("h1").text("Estacionamento"),
                 new Z("button").text("Adicionar").click(async ()=> {
-                    App.route.hash.push("modal", new FormEstacionamento(App.repository, new Estacionamento("")))
+                    Modal.show(new FormEstacionamento(App.repository, new Estacionamento("")))
                 }),
                 await lista.create(list),
                 new Z("button").text("Adicionar").click(async ()=> {
-                    App.route.hash.push("modal", new FormCarro(App.repository, new Carro("", "")))
+                    Modal.show(new FormCarro(App.repository, new Carro("", "")))
                 }),
                 await listacarro.create(listcarro)
             )
