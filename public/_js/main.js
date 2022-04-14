@@ -13,6 +13,7 @@ import AppLayout from "./components/layouts/app.js";
 import RepositoryLocalStorage from "./core/repository/localStorage.js";
 import Estacionamento from "./pages/estacionamento.js";
 import Login from "./pages/login.js";
+import Map from "./pages/map.js";
 import { Z } from "./ui/zeyo.js";
 console.log(window.location.pathname);
 App.repository = new RepositoryLocalStorage();
@@ -46,6 +47,7 @@ App.pages.push({
     }
 });
 App.pages.push(new Estacionamento);
+App.pages.push(new Map);
 App.pages.push({
     route: "/social/:usuario",
     auth: "",
