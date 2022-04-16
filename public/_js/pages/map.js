@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import App from "../app.js";
+import Icons from "../components/icons/_icons.js";
 import ComponentMap from "../components/map.js";
 import Modal from "../components/modal/modal.js";
 import Marker from "../features/map/marker/domain/marker.js";
@@ -21,8 +22,11 @@ export default class Map {
     }
     create() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.main = new Z("div").addClass("main", 'd-grid', 'gap-m').children(new Z("h1").text("LiberAqua"), yield ComponentMap.create(), new Z("button").text("Adicionar").addClass("add").click(e => {
+            const menu = new Z("div").addClass("menu-background").children(new Z("div").addClass("menu").children(new Z("h1").text("Menu")));
+            return this.main = new Z("div").addClass("main", 'd-grid', 'gap-g').children(new Z("div").addClass("d-flex", "gap-m").children(Icons.get("menu").addClass("menu-icon").click(() => menu.addClass("show")), new Z("h1").text("LiberAqua")), yield ComponentMap.create(), new Z("button").addClass("add").click(e => {
                 Modal.show(new FormCreateMarker(App.repository, new Marker()));
+            }).children(Icons.get("add")), menu.object(o => {
+                o.element.onclick = () => o.element.classList.remove("show");
             }));
         });
     }
