@@ -35,5 +35,4 @@ export default class Map {
         }
         document.head.appendChild(script);
     }
-    
 }
