@@ -73,9 +73,11 @@
 .ac-center {
     align-content: center;
 }
+
 .ac-between {
     align-content: space-between;
 }
+
 .ac-start {
     align-content: start;
 }
@@ -100,37 +102,40 @@
     width: 100%;
 }
 
-.bottom-fixed{
+.bottom-fixed {
     position: fixed;
     bottom: 0;
 }
+
 main.login {
     grid-template-columns: 50vw 50vw;
     background-color: var(--color-primary);
     color: var(--color-primary-contrast);
     height: 100vh;
-  }
-  div.login {
+}
+
+div.login {
     background-color: var(--color-primary-contrast);
     color: var(--color-primary);
     gap: 2em;
-  }
-  @media (max-width: 992px) {
+}
+
+@media (max-width: 992px) {
     main.login {
-      grid-template-columns: 100vw;
-      grid-template-rows: 30vh 70vh;
+        grid-template-columns: 100vw;
+        grid-template-rows: 30vh 70vh;
     }
-  
+
     main.login img {
-      width: 60vw;
+        width: 60vw;
     }
-  
+
     div.login {
-      border-radius: 1em 1em 0 0;
-      padding: 0 2.5em;
-      justify-content: inherit !important;
+        border-radius: 1em 1em 0 0;
+        padding: 0 2.5em;
+        justify-content: inherit !important;
     }
-  }
+}
 
 button,
 .p-10 {
@@ -184,4 +189,25 @@ input {
 
 .pointer {
     cursor: pointer;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+}
+
+.main {
+    height: calc(100vh - 2em);
+    padding: 1em;
+    grid-template-rows: min-content;
+    background: #f1f3f4;
+color: #0a7480;
+}
+
+.add {
+    position: absolute;
+    bottom: 2em;
+    transform: translate(-50%, 0);
+    left: 50%;
 }
