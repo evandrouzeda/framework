@@ -18,9 +18,10 @@ export default class Map implements Page {
             )
         )
         return this.main = new Z("div").addClass("main", 'd-grid', 'gap-g').children(
-            new Z("div").addClass("d-flex", "gap-m").children(
+            new Z("div").addClass("d-flex", "gap-m", "jc-between").children(
                 Icons.get("menu").addClass("menu-icon").click(()=>menu.addClass("show")),
-                new Z("h1").text("LiberAqua")
+                new Z("h1").text("Liberaqua"),
+                Icons.get("logo").addClass("menu-icon").click(()=>menu.addClass("show")),
             ),
             await ComponentMap.create(),
             new Z("button").addClass("add").click(e => {

@@ -23,7 +23,7 @@ export default class Map {
     create() {
         return __awaiter(this, void 0, void 0, function* () {
             const menu = new Z("div").addClass("menu-background").children(new Z("div").addClass("menu").children(new Z("h1").text("Menu")));
-            return this.main = new Z("div").addClass("main", 'd-grid', 'gap-g').children(new Z("div").addClass("d-flex", "gap-m").children(Icons.get("menu").addClass("menu-icon").click(() => menu.addClass("show")), new Z("h1").text("LiberAqua")), yield ComponentMap.create(), new Z("button").addClass("add").click(e => {
+            return this.main = new Z("div").addClass("main", 'd-grid', 'gap-g').children(new Z("div").addClass("d-flex", "gap-m", "jc-between").children(Icons.get("menu").addClass("menu-icon").click(() => menu.addClass("show")), new Z("h1").text("Liberaqua"), Icons.get("logo").addClass("menu-icon").click(() => menu.addClass("show"))), yield ComponentMap.create(), new Z("button").addClass("add").click(e => {
                 Modal.show(new FormCreateMarker(App.repository, new Marker()));
             }).children(Icons.get("add")), menu.object(o => {
                 o.element.onclick = () => o.element.classList.remove("show");
