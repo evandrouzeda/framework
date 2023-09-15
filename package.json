@@ -3,7 +3,12 @@
     "@types/google.maps": "^3.48.5",
     "typescript": "^4.6.3"
   },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "type": "module",
   "scripts": {
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "start": "node server.js"
   }
 }
