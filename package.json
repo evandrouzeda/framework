@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "tsc -w",
+    "dev": "./run 'node server.js' 'tsc -w'",
     "start": "node server.js"
   }
 }
